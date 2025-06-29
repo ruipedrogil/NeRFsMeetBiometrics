@@ -51,7 +51,7 @@ git checkout tags/v1.1.3  # ou qualquer outra versão
 Move the 4 Python script files into the Nerfstudio folder to enable facial recognition.
 
 #### Project folder structure:
-The Python files should be placed inside the main nerfstudio folder (or in a subfolder like code/), resulting in the following structure:
+The Python files should be placed inside the main nerfstudio folder (or in a subfolder like src/), resulting in the following structure:
 ```
 
 nerfstudio/
@@ -60,7 +60,7 @@ nerfstudio/
 ├── crop_face.py
 ├── face_recognition.py
 ├── eval_similarity_matrix.py
-├── code/                  # (Optional) For better script organization
+├── src/                  # (Optional) For better script organization
 │   ├── extract_rend_frames.py
 │   ├── crop_face.py
 │   ├── face_recognition.py

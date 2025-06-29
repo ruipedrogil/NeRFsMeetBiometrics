@@ -1,12 +1,12 @@
 # Neural-Radiance-Fields-Meet-Biometrics-Is-it-a-Match?
-Bachelor project based on the Nerfstudio framework using the Nerfacto method to create NeRF models for each person in the dataset. The project tests these models with images of different poses and performs face recognition using FaceNet512 to verify if the images correspond to the respective NeRF model.
+Bachelor project based on the [Nerfstudio](https://nerf.studio) framework using the Nerfacto method to create NeRF models for each person in the dataset. The project tests these models with images of different poses and performs face recognition using [FaceNet512](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) to verify if the images correspond to the respective NeRF model.
 
 ---
 
 
 ## Initial Requirements
 
-This project is based on the [Nerfstudio](https://nerf.studio) framework, so you need to follow its basic installation and setup.
+This project is based on the Nerfstudio framework, so you need to follow its basic installation and setup.
 
 ---
 

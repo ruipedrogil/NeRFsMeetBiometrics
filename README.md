@@ -87,16 +87,16 @@ pip install matplotlib fpdf2 scikit-learn
 
 ```bash
 export QT_QPA_PLATFORM=offscreen && ns-process-data video \
---data /home/socialab/Rui/nerfstudio/data/nerfstudio/dinis/video/IMG_5956.MOV \
---output-dir /home/socialab/Rui/nerfstudio/data/nerfstudio/dinis
+--data /home/socialab/nerfstudio/data/nerfstudio/subject/video/video.MOV \
+--output-dir /home/socialab/nerfstudio/data/nerfstudio/subject
 ```
 
 ### From images:
 
 ```bash
 export QT_QPA_PLATFORM=offscreen && ns-process-data images \
---data /home/socialab/Rui/nerfstudio/data/nerfstudio/ricardo/images \
---output-dir /home/socialab/Rui/nerfstudio/data/nerfstudio/ricardo
+--data /home/socialab/nerfstudio/data/nerfstudio/subject/images \
+--output-dir /home/socialab/nerfstudio/data/nerfstudio/subject
 ```
 
 ---
@@ -104,7 +104,7 @@ export QT_QPA_PLATFORM=offscreen && ns-process-data images \
 ## Training with the nerfacto model
 
 ```bash
-ns-train nerfacto --data /home/socialab/Rui/nerfstudio/data/nerfstudio/ricardo
+ns-train nerfacto --data /home/socialab/nerfstudio/data/nerfstudio/subject
 ```
 
 ---
@@ -113,9 +113,9 @@ ns-train nerfacto --data /home/socialab/Rui/nerfstudio/data/nerfstudio/ricardo
 
 ```bash
 ns-render camera-path \
---load-config outputs/sofia/nerfacto/2025-06-26_121712/config.yml \
---camera-path-filename /home/socialab/Rui/nerfstudio/data/nerfstudio/sofia/camera_paths/sofia.json \
---output-path renders/sofia/sofia.mp4
+--load-config outputs/subject/nerfacto/2025-06-26_121712/config.yml \
+--camera-path-filename /home/socialab/nerfstudio/data/nerfstudio/subject/camera_paths/subject.json \
+--output-path renders/subject/subject.mp4
 ```
 
 > Note: This command is generated in Viser after selecting the keyframes.
@@ -125,7 +125,7 @@ ns-render camera-path \
 ## Viewing a Trained Model
 
 ```bash
-ns-viewer --load-config /home/socialab/Rui/nerfstudio/outputs/goncalo/nerfacto/2025-06-25_180938/config.yml
+ns-viewer --load-config /home/socialab/nerfstudio/outputs/subject/nerfacto/2025-06-25_180938/config.yml
 ```
 
 ---
@@ -134,8 +134,8 @@ ns-viewer --load-config /home/socialab/Rui/nerfstudio/outputs/goncalo/nerfacto/2
 
 ```bash
 ns-eval \
---load-config=/home/socialab/Rui/nerfstudio/outputs/ricardo/nerfacto/2025-06-26_143818/config.yml \
---output-path=/home/socialab/Rui/nerfstudio/outputs/ricardo/nerfacto/2025-06-26_143818/output.json
+--load-config=/home/socialab/nerfstudio/outputs/subject/nerfacto/2025-06-26_143818/config.yml \
+--output-path=/home/socialab/nerfstudio/outputs/subject/nerfacto/2025-06-26_143818/output.json
 ```
 
 ## Facial Recognition Scripts
@@ -144,8 +144,8 @@ ns-eval \
 
 ```bash
 python extract_rend_frames.py \
---video_path /home/socialab/Rui/nerfstudio/renders/dinis/dinis.mp4 \
---output_path /home/socialab/Rui/nerfstudio/renders/dinis/frames
+--video_path /home/socialab/nerfstudio/renders/subject/subject.mp4 \
+--output_path /home/socialab/nerfstudio/renders/subject/frames
 ```
 
 ### Crop faces for folder:
@@ -153,8 +153,8 @@ python extract_rend_frames.py \
 ```bash
 python crop_face.py \
 --mode person_face \
---input /home/socialab/Rui/nerfstudio/renders/dinis/frames \
---output /home/socialab/Rui/nerfstudio/renders/dinis/face_frames
+--input /home/socialab/nerfstudio/renders/subject/frames \
+--output /home/socialab/nerfstudio/renders/subject/face_frames
 ```
 
 ### Crop test image:
@@ -162,24 +162,24 @@ python crop_face.py \
 ```bash
 python crop_face.py \
 --mode single \
---input /home/socialab/Rui/nerfstudio/renders/dinis/tests/dinis1.png \
---output /home/socialab/Rui/nerfstudio/renders/dinis/tests
+--input /home/socialab/nerfstudio/renders/subject/tests/subject1.png \
+--output /home/socialab/nerfstudio/renders/subject/tests
 ```
 
 ### Run recognition test:
 
 ```bash
 python face_recognition.py \
---frame_path /home/socialab/Rui/nerfstudio/renders/dinis/face_frames \
---test_path /home/socialab/Rui/nerfstudio/renders/dinis/tests_faces \
---output_json /home/socialab/Rui/nerfstudio/renders/dinis/test_results/sim_cos.json
+--frame_path /home/socialab/nerfstudio/renders/subject/face_frames \
+--test_path /home/socialab/nerfstudio/renders/subject/tests_faces \
+--output_json /home/socialab/nerfstudio/renders/subject/test_results/sim_cos.json
 ```
 
 ### Similarity matrix:
 
 ```bash
 python eval_similarity_matrix.py \
---root /home/socialab/Rui/nerfstudio/renders \
+--root /home/socialab/nerfstudio/renders \
 --frames_subdir face_frames \
 --tests_subdir tests_faces \
 --output_json matriz_resultados.json

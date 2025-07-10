@@ -3,6 +3,14 @@ Bachelor project based on the [Nerfstudio](https://github.com/nerfstudio-project
 
 ---
 
+You can download the full project report below:
+
+[Download Report (PDF)](./report.pdf)
+
+Or use the direct link:  
+[https://github.com/ruipedrogil/NeRFsMeetBiometrics/raw/main/report.pdf](https://github.com/ruipedrogil/NeRFsMeetBiometrics/raw/main/report.pdf)
+
+---
 
 ## Initial Requirements
 

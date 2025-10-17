@@ -1,9 +1,12 @@
 # Neural Radiance Fields Meet Biometrics Is it a Match?
 Bachelor project based on the [Nerfstudio](https://github.com/nerfstudio-project/nerfstudio) framework using the Nerfacto method to create NeRF models for each person in the dataset. The project tests these models with images of different poses and performs face recognition using [FaceNet512](https://github.com/davidsandberg/facenet) to verify if the images correspond to the respective NeRF model.
 
-![NeRFs Reconstructions](./assets/nerfs.png)
+<p align="center">
+  <img src="./assets/nerfs.png" alt="NeRFs Reconstructions" width="200">
+</p>
 
---
+
+---
 
 You can download the full project report below:
 
